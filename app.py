@@ -1,19 +1,21 @@
 from flask import Flask, request, render_template
 from flask_restful import Api
 
-from resources.brand import Brand, BrandsIndex, BrandItem
+from resources.brand import BrandResource, BrandIndexResource, BrandItemResource
 
 app = Flask(__name__)
 api = Api(app)
 
-# GET /
+# Home
 @app.route('/')
 def home():
     return render_template('index.html')
 
-api.add_resource(BrandsIndex, '/brands')
-api.add_resource(Brand, '/brands/<string:id>')
-api.add_resource(BrandItem, '/brands/<string:id>/item')
+# Brand
+api.add_resource(BrandIndexResource, '/brands')
+api.add_resource(BrandResource, '/brands/<string:id>')
+api.add_resource(BrandItemResource, '/brands/<string:id>/item')
 
 if __name__ == '__main__':
+    from config.db import db
     app.run(port=5000, debug=True)
