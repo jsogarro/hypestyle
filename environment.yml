@@ -10,6 +10,7 @@ dependencies:
     - Flask-RESTful
     - Flask-JWT
     - flask-bcrypt
+    - flask_sqlalchemy
     - requests
     - scrapy
     - sqlalchemy
