@@ -1,3 +1,3 @@
-# Flask REST API
+# HypeStyle
 
-> A simple REST service written in Flask
+> A simple Flask REST service that can be used to search for things hypebeasts like
