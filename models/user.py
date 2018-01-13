@@ -20,27 +20,34 @@ class User(db.Model):
         self.password = password
 
     @classmethod
+    def find(cls, id):
+        return cls.query.filter_by(id=id)
+
+    @classmethod
     def find_by(cls, **kwargs):
-        pass
+        return cls.query.filter_by(kwargs).first()
 
     @classmethod
     def first(cls):
-        pass
+        return cls.query(cls).one()
 
     @classmethod
     def all(cls):
-        pass
+        return cls.query(cls)
 
     @classmethod
     def new(cls):
         pass
 
     @classmethod
-    def create(cls):
-        pass
+    def create(cls, **kwargs):
+        db.session.add(kwargs)
+        db.session.commit()
 
     def update(self):
-        pass
+        db.session.add(self)
+        db.session.commit()
 
     def destroy(self):
-        pass
+        db.session.delete(self)
+        db.session.commit()
