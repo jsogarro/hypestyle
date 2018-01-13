@@ -7,3 +7,4 @@ dependencies:
     - flask
     - pytest
     - pytest-flask
+    - Flask-RESTful
