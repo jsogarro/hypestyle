@@ -8,3 +8,8 @@ dependencies:
     - pytest
     - pytest-flask
     - Flask-RESTful
+    - Flask-JWT
+    - flask-bcrypt
+    - requests
+    - scrapy
+    - sqlalchemy
