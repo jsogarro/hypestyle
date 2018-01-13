@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -20,12 +20,14 @@ def get_brand(id):
 # POST /brands
 @app.route('/brands', methods=['POST'])
 def create_brand():
-    return jsonify({'success': True})
+    req = request.get_json()
+    return jsonify({'success': True, 'brand': req})
 
 # POST /brands/:id/item
 @app.route('/brands/<string:id>/item', methods=['POST'])
-def get_item_in_brand():
+def get_item_in_brand(id):
     return jsonify({'success': True})
+
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
