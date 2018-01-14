@@ -9,7 +9,7 @@ class User(db.Model):
 
     # model schema
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(80), primary_key=True)
+    email = db.Column(db.String(80))
     username = db.Column(db.String(80))
     password = db.Column(db.String(80))
 
